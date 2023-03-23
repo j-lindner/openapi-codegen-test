@@ -4,7 +4,7 @@ Small example project to run three basic tests that interact with C7 Open API Sp
 
 As the example provided upfront didn't work due to failing dateformat, I tried the following:
 
-Instead of using the camunda-engine-rest-client-openapi-java[https://github.com/camunda-community-hub/camunda-platform-7-rest-client-java], I downloaded the current contract from https://docs.camunda.org/rest/camunda-bpm-platform/7.19/ and tried own configurations via openapi-generator-maven-plugin.
+Instead of using the [camunda-engine-rest-client-openapi-java](https://github.com/camunda-community-hub/camunda-platform-7-rest-client-java), I downloaded the current contract from https://docs.camunda.org/rest/camunda-bpm-platform/7.19/ and tried own configurations via openapi-generator-maven-plugin.
 I tried different configurations
 
 - generatorName=java, library=resttemplate, configOptions.dateLibrary=legacy
