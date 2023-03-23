@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestClientException;
 
 import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
 @SpringBootTest(classes = {CamundaInstanceTestApp.class, DeploymentApi.class, ApiClient.class}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -30,13 +31,13 @@ public class DeploymentApiTest {
 
     @Test
     public void shouldGetDeployments() throws Exception {
-        api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null, null);
+        api.getDeployments(null, null, null, null, null, null, null, null, OffsetDateTime.now(), null, null, null, null, null);
     }
 
     @Test
     public void shouldGetDeploymentsWithMessage() throws Exception {
         try {
-            api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null,
+            api.getDeployments(null, null, null, null, null, null, null, null, OffsetDateTime.now(), null, null, null, null,
                     null);
         } catch (RestClientException e) {
             throw new Exception(e.getMessage());

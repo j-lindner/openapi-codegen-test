@@ -164,7 +164,7 @@
                                 <apiPackage>com.camunda.openapi.api</apiPackage>
                                 <invokerPackage>com.camunda.openapi.invoker</invokerPackage>
                                 <modelPackage>com.camunda.openapi.dto</modelPackage>
-                                <dateLibrary>legacy</dateLibrary>
+                                <dateLibrary>java8</dateLibrary>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                             </configOptions>
                         </configuration>
