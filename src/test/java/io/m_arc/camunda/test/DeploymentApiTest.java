@@ -31,13 +31,13 @@ public class DeploymentApiTest {
 
     @Test
     public void shouldGetDeployments() throws Exception {
-        api.getDeployments(null, null, null, null, null, null, null, null, OffsetDateTime.now(), null, null, null, null, null);
+        api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null, null);
     }
 
     @Test
     public void shouldGetDeploymentsWithMessage() throws Exception {
         try {
-            api.getDeployments(null, null, null, null, null, null, null, null, OffsetDateTime.now(), null, null, null, null,
+            api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null,
                     null);
         } catch (RestClientException e) {
             throw new Exception(e.getMessage());

@@ -16,7 +16,7 @@
 
     <properties>
         <camunda.version>7.18.0</camunda.version>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <jupiter.version>5.9.1</jupiter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -140,6 +140,16 @@
             <artifactId>jsr305</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.14.2</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>2.1.6</version>
+        </dependency>
 
 
     </dependencies>
@@ -158,13 +168,13 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/test/resources/openapi/openapi.json</inputSpec>
                             <generatorName>java</generatorName>
-                            <library>resttemplate</library>
+                            <library>native</library>
                             <configOptions>
                                 <packageName>com.camunda.openapi</packageName>
                                 <apiPackage>com.camunda.openapi.api</apiPackage>
                                 <invokerPackage>com.camunda.openapi.invoker</invokerPackage>
                                 <modelPackage>com.camunda.openapi.dto</modelPackage>
-                                <dateLibrary>java8</dateLibrary>
+                                <dateLibrary>legacy</dateLibrary>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                             </configOptions>
                         </configuration>
