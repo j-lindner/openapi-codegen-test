@@ -1,16 +1,15 @@
 package io.m_arc.camunda.test;
 
-
-import org.camunda.community.rest.client.api.DeploymentApi;
-import org.camunda.community.rest.client.invoker.ApiClient;
-import org.camunda.community.rest.client.invoker.ApiException;
+import com.camunda.openapi.api.DeploymentApi;
+import com.camunda.openapi.invoker.ApiClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.client.RestClientException;
 
 import java.io.File;
 import java.util.Date;
 
-@SpringBootTest(classes = CamundaInstanceTestApp.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = {CamundaInstanceTestApp.class, DeploymentApi.class, ApiClient.class}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class DeploymentApiTest {
     private static ApiClient client = new ApiClient();
     private static DeploymentApi api = new DeploymentApi(client);
@@ -27,6 +26,8 @@ public class DeploymentApiTest {
                 null,
                 new File(DeploymentApiTest.class.getClassLoader().getResource(bpmnXmlPath).getFile()));
     }
+
+
     @Test
     public void shouldGetDeployments() throws Exception {
         api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null, null);
@@ -37,8 +38,8 @@ public class DeploymentApiTest {
         try {
             api.getDeployments(null, null, null, null, null, null, null, null, new Date(), null, null, null, null,
                     null);
-        } catch (ApiException e) {
-            throw new Exception(e.getResponseBody());
+        } catch (RestClientException e) {
+            throw new Exception(e.getMessage());
         }
     }
 }
